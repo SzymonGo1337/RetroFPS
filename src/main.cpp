@@ -99,7 +99,7 @@ GLfloat rotationY = 0.0f;
 
 int main() {
     sf::ContextSettings context;
-    //context.antialiasingLevel = 8.0f;
+    context.antialiasingLevel = 8.0f;
 
     sf::RenderWindow window(sf::VideoMode(1280, 720), "Retro FPS", sf::Style::Titlebar | sf::Style::Close, context);
     window.setFramerateLimit(60);
