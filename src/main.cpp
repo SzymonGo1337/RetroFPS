@@ -116,7 +116,6 @@ int main() {
     glLoadIdentity();
 
     glEnable(GL_DEPTH_TEST);
-    glEnable(GL_BLEND);
 
     GLfloat halfScreenWidth = 1280 / 2;
     GLfloat halfScreenHeight = 720 / 2;
