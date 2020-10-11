@@ -45,11 +45,52 @@ void drawCube(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfloa
         centerPosX + halfSideLength, centerPosY - halfSideLength, centerPosZ + halfSideLength, // bottom left
     };
 
+    GLfloat color[] = {
+        // front face
+        255, 0, 0,
+        0, 255, 0,
+        0, 255, 255,
+        0, 0, 0,
+
+        // back face
+        255, 0, 0,
+        0, 255, 0,
+        0, 255, 255,
+        0, 0, 0,
+
+        // left face
+        255, 0, 0,
+        0, 255, 0,
+        0, 255, 255,
+        0, 0, 0,
+
+        // right face
+        255, 0, 0,
+        0, 255, 0,
+        0, 255, 255,
+        0, 0, 0,
+
+        // top face
+        255, 0, 0,
+        0, 255, 0,
+        0, 255, 255,
+        0, 0, 0,
+
+        // bottom face
+        255, 0, 0,
+        0, 255, 0,
+        0, 255, 255,
+        0, 0, 0,
+    };
+
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     //glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_COLOR_ARRAY);
     glVertexPointer(3, GL_FLOAT, 0, vertices);
+    glColorPointer(3, GL_FLOAT, 0, color);
     glDrawArrays(GL_QUADS, 0, 24);
+    glDisableClientState(GL_COLOR_ARRAY);
     glDisableClientState(GL_VERTEX_ARRAY);
 }
 
@@ -73,6 +114,9 @@ int main() {
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
+
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_BLEND);
 
     GLfloat halfScreenWidth = 1280 / 2;
     GLfloat halfScreenHeight = 720 / 2;
